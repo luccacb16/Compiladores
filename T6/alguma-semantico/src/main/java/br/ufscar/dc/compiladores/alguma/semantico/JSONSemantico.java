@@ -10,7 +10,6 @@ public class JSONSemantico extends JSONBaseVisitor<EntradaTabelaDeSimbolos.Tipos
 
     public static List<String> errosSemanticos = new ArrayList<>();
     
-    // Adiciona um erro semântico à lista com a linha e a mensagem de erro
     public static void adicionarErroSemantico(Token t, String mensagem) {
         int linha = t.getLine();
         errosSemanticos.add(String.format("Linha %d: %s", linha, mensagem));
@@ -18,24 +17,31 @@ public class JSONSemantico extends JSONBaseVisitor<EntradaTabelaDeSimbolos.Tipos
 
     @Override
     public EntradaTabelaDeSimbolos.Tipos visitJson(JSONParser.JsonContext ctx) {
-        return visit(ctx.value()); // Agora retorna o tipo corretamente
+        return visit(ctx.value());
     }
 
     @Override
     public EntradaTabelaDeSimbolos.Tipos visitObj(JSONParser.ObjContext ctx) {
         escoposAninhados.criarNovoEscopo();
         for (JSONParser.Par_chave_valorContext par : ctx.par_chave_valor()) {
-            visit(par); // Visitando pares chave-valor
+            visit(par);
         }
         escoposAninhados.abandonarEscopo();
-        return EntradaTabelaDeSimbolos.Tipos.OBJECT; // Retorna OBJECT para objetos
+        return EntradaTabelaDeSimbolos.Tipos.OBJECT;
     }
 
     @Override
     public EntradaTabelaDeSimbolos.Tipos visitPar_chave_valor(JSONParser.Par_chave_valorContext ctx) {
         String chave = ctx.STRING().getText().replace("\"", "");
+        
+        // Análise Semântica 1: Chave vazia = ""
+        if (chave.isEmpty()) {
+            adicionarErroSemantico(ctx.STRING().getSymbol(), "A chave não pode ser vazia");
+        }
+        
         EntradaTabelaDeSimbolos.Tipos tipoValor = visit(ctx.value()); // visit agora retorna Tipos
-
+        
+        // Análise Semântica 2: Chave duplicada
         if (escoposAninhados.obterEscopoAtual().possui(chave)) {
             adicionarErroSemantico(ctx.STRING().getSymbol(), "Chave " + chave + " duplicada");
         } else {
@@ -48,18 +54,21 @@ public class JSONSemantico extends JSONBaseVisitor<EntradaTabelaDeSimbolos.Tipos
     @Override
     public EntradaTabelaDeSimbolos.Tipos visitArray(JSONParser.ArrayContext ctx) {
         EntradaTabelaDeSimbolos.Tipos tipoAnterior = null;
-
+        boolean tipoInconsistenteReportado = false;
+    
         for (JSONParser.ValueContext valorCtx : ctx.value()) {
             EntradaTabelaDeSimbolos.Tipos tipoAtual = visit(valorCtx);
-
-            if (tipoAnterior != null && tipoAtual != tipoAnterior) {
+            
+            // Análise semântica 3: Array com elementos de tipos diferentes
+            if (tipoAnterior != null && tipoAtual != tipoAnterior && !tipoInconsistenteReportado) {
                 adicionarErroSemantico(ctx.getStart(), "Arrays devem ter todos os elementos do mesmo tipo");
+                tipoInconsistenteReportado = true; // Marca que um erro já foi reportado para este array
             }
             tipoAnterior = tipoAtual;
         }
-
+    
         return EntradaTabelaDeSimbolos.Tipos.ARRAY;
-    }
+    }    
 
     @Override
     public EntradaTabelaDeSimbolos.Tipos visitValue(JSONParser.ValueContext ctx) {

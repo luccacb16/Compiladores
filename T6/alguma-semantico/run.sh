@@ -1,1 +1,0 @@
-java -jar ./target/alguma-semantico-1.0-SNAPSHOT-jar-with-dependencies.jar 

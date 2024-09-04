@@ -1,0 +1,13 @@
+{
+    "nome": "João",
+    "idade": 30,
+    "altura": 1.75,
+    "estudante": false,
+    "endereço": {
+        "rua": "Rua das Flores",
+        "numero": "123A",
+        "cidade": "São Paulo"
+    },
+    "notas": [10, 9.5, 8],
+    "professor": null
+}

@@ -1,3 +1,2 @@
-Linha 2: Arrays devem ter todos os elementos do mesmo tipo
-Linha 2: Arrays devem ter todos os elementos do mesmo tipo
-Linha 2: Arrays devem ter todos os elementos do mesmo tipo
+Linha 3: token recognition error at: 'a'
+Fim da compilação
