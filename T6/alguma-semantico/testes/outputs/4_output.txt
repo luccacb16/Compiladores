@@ -1,2 +1,0 @@
-Linha 3: Chave nome duplicada
-Fim da compilação

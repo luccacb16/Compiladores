@@ -1,0 +1,12 @@
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/JSONSemantico.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONBaseListener.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONBaseVisitor.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONListener.java
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/EntradaTabelaDeSimbolos.java
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/Escopos.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONVisitor.java
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/Principal.java
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/TabelaDeSimbolos.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONLexer.java
+/home/lucca-wsl/Compiladores/T6/json-validator/target/generated-sources/antlr4/br/ufscar/dc/compiladores/json/validator/JSONParser.java
+/home/lucca-wsl/Compiladores/T6/json-validator/src/main/java/br/ufscar/dc/compiladores/json/validator/ErrorListener.java

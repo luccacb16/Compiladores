@@ -1,2 +1,0 @@
-Linha 3: token recognition error at: 'a'
-Fim da compilação

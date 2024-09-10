@@ -36,9 +36,9 @@ Para buildar o projeto é necessário usar um comando na raiz do diretório
 
     mvn clean package
 
-Após executar o comando anterior, irá criar um arquivo .jar. Para utilizar o corretor e testar o programa é necessário usar um comando com alguns parâmetros. A entrada é um arquivo .json e a saída é salva em um arquivo .txt
+Após executar o comando anterior, será criado um arquivo .jar. Para utilizar o corretor e testar o programa é necessário usar um comando com alguns parâmetros. A entrada é um arquivo .json e a saída é salva em um arquivo .txt
 
-    java -jar <caminho do arquivo alguma-semantico-1.0-SNAPSHOT-jar-with-dependencies> <caminho para o jso de entrada> <caminho para o txt de saída>
+    java -jar <caminho do arquivo json-validator-1.0-SNAPSHOT-jar-with-dependencies> <caminho para o json de entrada> <caminho para o txt de saída>
 
 ## 2° Opção de execução ##
 Os integrantes do grupo criaram um script com o nome run_testes.sh que facilita o build e a execução do programa. Para rodar é necessário executar o script na raiz do diretório

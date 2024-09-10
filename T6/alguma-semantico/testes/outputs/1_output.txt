@@ -1,3 +1,0 @@
-Erro de análise na linha 3, posição 16: erro inesperado.
-Detalhes: token recognition error at: 'a'
-Fim da compilação.

@@ -1,0 +1,2 @@
+Linha 2: Arrays devem ter todos os elementos do mesmo tipo
+Fim da compilação

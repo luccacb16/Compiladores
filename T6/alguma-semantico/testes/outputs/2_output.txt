@@ -1,3 +1,0 @@
-Erro de análise na linha 5, posição 1: fim de arquivo inesperado.
-Detalhes: extraneous input '<EOF>' expecting {'}', ','}
-Fim da compilação.
